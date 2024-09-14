@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="registration-container">
+    <h1>Inscription</h1>
+
+    {{ form_start(registrationForm) }}
+        <div class="form-group">
+            {{ form_label(registrationForm.nom, 'Nom :') }}
+            {{ form_widget(registrationForm.nom, { 'attr': {'required': true, 'pattern': '[a-zA-Z\\s]+', 'title': 'Le nom ne doit contenir que des lettres et des espaces.'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(registrationForm.email, 'Email :') }}
+            {{ form_widget(registrationForm.email, { 'attr': {'required': true, 'type': 'email'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(registrationForm.password.first, 'Mot de passe :') }}
+            {{ form_widget(registrationForm.password.first, { 'attr': {'required': true, 'pattern': '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{8,}', 'title': 'Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un symbole.'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(registrationForm.password.second, 'Confirmer le mot de passe :') }}
+            {{ form_widget(registrationForm.password.second, { 'attr': {'required': true, 'pattern': '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{8,}', 'title': 'Veuillez saisir à nouveau votre mot de passe pour confirmation.'} }) }}
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-submit">S'inscrire</button>
+        </div>
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}

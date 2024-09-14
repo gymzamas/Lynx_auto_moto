@@ -1,0 +1,8 @@
+easy_admin:
+  entities:
+    Utilisateur:
+      class: App\Entity\Utilisateur
+      label: "Utilisateurs"
+    Cours:
+      class: App\Entity\Cours
+      label: "Cours"

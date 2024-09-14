@@ -1,0 +1,70 @@
+/* Styles de base pour la page de connexion */
+.login-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #F2F2F2; /* Blanc cassé */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px; /* Pour espacer du haut de la page */
+}
+
+.login-container h1 {
+    font-size: 2rem;
+    color: #D92332; /* Rouge vif */
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #262526; /* Noir profond */
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #262526; /* Noir profond */
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #D9777F; /* Rose pâle */
+    outline: none;
+    box-shadow: 0 0 5px rgba(217, 119, 127, 0.5);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #D94350; /* Rouge intermédiaire */
+    color: #F2F2F2; /* Blanc cassé */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #262526; /* Noir profond */
+}
+
+.error {
+    color: #D92332; /* Rouge vif */
+    margin-bottom: 1rem;
+    text-align: center;
+}

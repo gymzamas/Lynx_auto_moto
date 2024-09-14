@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        
+        {# Inclusion de la police Poppins via Google Fonts #}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+        {# Inclusion du fichier CSS principal #}
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body style="font-family: 'Poppins', sans-serif;">
+    
+        <header>
+            <nav aria-label="Main Navigation">
+                <div class="logo">
+                    <img src="{{ asset('images/16.webp') }}" alt="Base2 Academy Logo">
+                </div>
+                <ul>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Témoignages</a></li>
+                    <li><a href="{{ path('contact') }}">Contact</a></li>
+                    <li><a href="{{ path('about_us') }}">Qui sommes-nous ?</a></li>
+
+                </ul>
+                {% if is_granted('ROLE_USER') %}
+                    <div id="menu-burger" class="menu-burger" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+                        ☰
+                    </div>
+                    <!-- Sidebar Menu qui s'affiche au clic -->
+                    <div id="sidebar" class="sidebar" aria-hidden="true">
+                        <button class="close-btn" aria-label="Close menu">&times;</button>
+                        <a href="#" class="dasboard">Mon Compte</a>
+                        <a href="{{ path('app_cours_index') }}">Programme 1</a>
+                        <a href="#">Programme 2</a>
+                        <a href="#">Programme 3</a>
+                        <a href="#">Programme 4</a>
+                        <a href="#">Programme 5</a>
+                        <a href="#">Programme 6</a>
+                        <a href="{{ path('app_logout') }}" class="btn-fill">Déconnexion</a>
+                    </div>
+                {% else %}
+                    <div class="auth-buttons">
+                        <a href="{{ path('app_login') }}" class="btn-outline">Se connecter</a>
+                        <a href="{{ path('app_register') }}" class="btn-filled">S'inscrire</a>
+                    </div>
+                {% endif %}
+            </nav>
+        </header>   
+
+        {% block body %}
+            {% if app.user %}
+                {{ dump(app.user) }}
+            {% endif %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="{{ asset('js/scripts.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

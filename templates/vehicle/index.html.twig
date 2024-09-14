@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des véhicules{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        /* Conteneur des filtres */
+        .filters {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .filter-item {
+            flex: 1 1 30%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .filter-item label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .filter-item input[type="range"] {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .filter-value {
+            text-align: right;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        /* Conteneur des véhicules */
+        .vehicles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .vehicle-card {
+            flex: 1 1 calc(25% - 20px);
+            max-width: calc(25% - 20px);
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .vehicle-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .vehicle-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .vehicle-card p {
+            margin: 5px 0;
+        }
+
+        .vehicle-card button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .vehicle-card button:hover {
+            background-color: #555;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des véhicules</h1>
+    
+    <form method="get" action="{{ path('vehicle_list') }}">
+        <div class="filters">
+            <!-- Filtre pour le kilométrage -->
+            <div class="filter-item">
+                <label for="mileage">Kilométrage (en km)</label>
+                <input type="range" id="mileage" name="min_mileage" min="0" max="300000" value="{{ app.request.get('min_mileage', 0) }}" 
+                       oninput="document.getElementById('mileageMin').innerHTML = this.value;">
+                <span class="filter-value">Min: <span id="mileageMin">{{ app.request.get('min_mileage', 0) }}</span> km</span>
+                
+                <input type="range" name="max_mileage" min="0" max="300000" value="{{ app.request.get('max_mileage', 300000) }}" 
+                       oninput="document.getElementById('mileageMax').innerHTML = this.value;">
+                <span class="filter-value">Max: <span id="mileageMax">{{ app.request.get('max_mileage', 300000) }}</span> km</span>
+            </div>
+
+            <!-- Filtre pour le prix -->
+            <div class="filter-item">
+                <label for="price">Prix (en €)</label>
+                <input type="range" id="price" name="min_price" min="0" max="100000" value="{{ app.request.get('min_price', 0) }}" 
+                       oninput="document.getElementById('priceMin').innerHTML = this.value;">
+                <span class="filter-value">Min: <span id="priceMin">{{ app.request.get('min_price', 0) }}</span> €</span>
+
+                <input type="range" name="max_price" min="0" max="100000" value="{{ app.request.get('max_price', 100000) }}" 
+                       oninput="document.getElementById('priceMax').innerHTML = this.value;">
+                <span class="filter-value">Max: <span id="priceMax">{{ app.request.get('max_price', 100000) }}</span> €</span>
+            </div>
+
+            <!-- Filtre pour les années -->
+            <div class="filter-item">
+                <label for="year">Année</label>
+                <input type="range" id="year" name="min_year" min="2000" max="2024" value="{{ app.request.get('min_year', 2000) }}" 
+                       oninput="document.getElementById('yearMin').innerHTML = this.value;">
+                <span class="filter-value">Min: <span id="yearMin">{{ app.request.get('min_year', 2000) }}</span></span>
+
+                <input type="range" name="max_year" min="2000" max="2024" value="{{ app.request.get('max_year', 2024) }}" 
+                       oninput="document.getElementById('yearMax').innerHTML = this.value;">
+                <span class="filter-value">Max: <span id="yearMax">{{ app.request.get('max_year', 2024) }}</span></span>
+            </div>
+        </div>
+
+        <button type="submit" style="display: block; margin: 20px auto;">Filtrer</button>
+    </form>
+
+<div class="vehicles">
+    {% for vehicle in vehicles %}
+        <div class="vehicle-card">
+            <img src="{{ asset(vehicle.image) }}" alt="{{ vehicle.name }}">
+            <h2>{{ vehicle.name }}</h2>
+            <p>Prix : {{ vehicle.price }} €</p>
+            <p>Kilométrage : {{ vehicle.mileage }} km</p>
+            <p>Année : {{ vehicle.year }}</p>
+            <a href="{{ path('vehicle_details', {'id': vehicle.id}) }}">
+                <button>Détails</button>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ vehicle.name }} - Détails{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .vehicle-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .vehicle-details img {
+            max-width: 400px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .vehicle-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vehicle-details ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #555;
+        }
+
+        .vehicle-header {
+            margin-bottom: 30px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="vehicle-details">
+        <h1 class="vehicle-header">{{ vehicle.name }}</h1>
+
+        <img src="{{ asset(vehicle.image) }}" alt="{{ vehicle.name }}">
+
+        <ul>
+            <li><strong>Prix :</strong> {{ vehicle.price }} €</li>
+            <li><strong>Kilométrage :</strong> {{ vehicle.mileage }} km</li>
+            <li><strong>Année :</strong> {{ vehicle.year }}</li>
+            <li><strong>Type de carburant :</strong> {{ vehicle.fuelType }}</li>
+        </ul>
+
+        <a href="{{ path('vehicle_list') }}" class="btn-back">Retour à la liste des véhicules</a>
+    </div>
+{% endblock %}

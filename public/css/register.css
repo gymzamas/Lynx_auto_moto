@@ -1,0 +1,88 @@
+/* -----------------------------------PAGE REGISTER------------------------------------------- */
+
+/* Styles pour le conteneur d'inscription */
+.registration-container {
+    max-width: 600px; /* Aligné avec login */
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #F2F2F2; /* Blanc cassé */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box-shadow ajustée pour correspondre au style du login */
+    margin-top: 100px; /* Même espacement que login */
+}
+
+/* Styles pour le titre */
+.registration-container h1 {
+    font-size: 2rem; /* Taille ajustée pour correspondre à login */
+    margin-bottom: 1.5rem; /* Même espacement que login */
+    color: #D92332; /* Rouge vif */
+}
+
+/* Styles pour le formulaire */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Styles pour les groupes de formulaires */
+.form-group {
+    margin-bottom: 1.5rem; /* Aligné avec login */
+}
+
+.form-group label {
+    display: block; /* Même structure que login */
+    font-size: 1rem;
+    color: #262526; /* Noir profond */
+    margin-bottom: 0.5rem;
+}
+
+/* Styles pour les champs de saisie */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 0.75rem; /* Taille ajustée pour correspondre à login */
+    border: 1px solid #ccc; /* Bordure similaire à login */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #262526; /* Noir profond */
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: none; /* Enlevé la shadow supplémentaire pour correspondre à login */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #D9777F; /* Rose pâle pour correspondre à la palette */
+    outline: none;
+    box-shadow: 0 0 5px rgba(217, 119, 127, 0.5); /* Même shadow que login */
+}
+
+/* Styles pour le bouton de soumission */
+.btn-submit {
+    width: 100%;
+    padding: 0.75rem; /* Taille ajustée pour correspondre à login */
+    background-color: #D94350; /* Rouge intermédiaire */
+    color: #F2F2F2; /* Blanc cassé */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem; /* Taille ajustée pour correspondre à login */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+.btn-submit:hover {
+    background-color: #262526; /* Noir profond */
+}
+
+/* Styles pour les messages d'erreur */
+.error {
+    color: #D92332; /* Rouge vif pour correspondre à la charte */
+    margin-bottom: 1rem;
+    text-align: center;
+}

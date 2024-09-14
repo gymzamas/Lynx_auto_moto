@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <section id="hero">
+    <div class="container">
+        <div data-scroll-animation="fadeInLeft" data-animation-delay="0.05s" class="hero-content">
+            <p>Let's get you
+on the road !</p>
+            <a href="{{ path('app_register') }}" class="btn-primary">Je fais un devis forfait basic</a>
+        </div>
+        <div data-scroll-animation="fadeInRight" data-animation-delay="0.05s" class="hero-image">
+            <img src="{{ asset('images/Let.png') }}" alt="Hero Image">
+        </div>
+    </div>
+
+</section>
+
+    <section id="about">
+    <div class="container">
+        <div class="about-content">
+            <div data-scroll-animation="fadeInRight" data-animation-delay="0.02s" class="about-image">
+                <img src="{{ asset('images/buy car.jpg') }}" alt="About Image">
+            </div>
+            <div data-scroll-animation="fadeInLeft" data-animation-delay="0.02s" class="about-text">
+                <h2>Are you looking to buy a car?</h2>
+                <p>
+                    Créée en 2024,With more than 800 of cars in stock in the same location, our massive buying power means you’ll find giant savings as well as giant choice.
+We have the best options for you to choose.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="mission-code">
+    <div class="container">
+        <p data-scroll-animation="fadeInDown" data-animation-delay="0.05s">Nos Services pour le Garage Automobile :</p>
+        <div class="programmes">
+            <a data-scroll-animation="fadeInLeft" data-animation-delay="0.05s" href="#" class="programme dark">
+                <span class="programme-title">Réparation Mécanique</span>
+                <img src="{{ asset('images/R8.png') }}" alt="Arrow">
+            </a>
+            <a data-scroll-animation="fadeInRight" data-animation-delay="0.05s" href="#" class="programme light">
+                <span class="programme-title">Entretien et Vidange</span>
+                <img src="{{ asset('images/R8.png') }}" alt="Arrow">
+            </a>
+            <a data-scroll-animation="fadeInLeft" data-animation-delay="0.05s" href="#" class="programme light">
+                <span class="programme-title">Réparation Carrosserie</span>
+                <img src="{{ asset('images/R8.png') }}" alt="Arrow">
+            </a>
+            <a data-scroll-animation="fadeInRight" data-animation-delay="0.05s" href="#" class="programme dark">
+                <span class="programme-title">Galerie d'Images</span>
+                <img src="{{ asset('images/R8.png') }}" alt="Arrow">
+            </a>
+            <a data-scroll-animation="fadeInLeft" data-animation-delay="0.05s" href="#" class="programme dark">
+                <span class="programme-title">Véhicules d'Occasion</span>
+                <img src="{{ asset('images/R8.png') }}" alt="Arrow">
+            </a>
+            <a data-scroll-animation="fadeInRight" data-animation-delay="0.05s" href="#" class="programme light">
+                <span class="programme-title">Service de Dépannage</span>
+                <img src="{{ asset('images/R8.png') }}" alt="Arrow">
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="quote">
+    <div class="container">
+        <img src="{{ asset('images/merco SLK.png') }}" alt="CEO Illustration">
+         <img src="{{ asset('images/44GML.jpg') }}" alt="CEO Illustration">
+         <img src="{{ asset('images/porsche-992.png') }}" alt="CEO Illustration">
+        <blockquote>
+            “Excellence, passion et performance. Notre mission est de transformer vos besoins automobiles en solutions fiables et efficaces.”.
+        </blockquote>
+        <p class="quote-author">Jimmy Taibi, CEO</p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>Des questions sur l'achat d'une voiture ?<br>On vous guide !</h2>
+        <div class="contact-content">
+            <div class="contact-image">
+                <img src="{{ asset('images/Home[1].png') }}" alt="Contact Illustration">
+            </div>
+            <div class="contact-info">
+                <p><strong>Adresse postale</strong><br>123 Avenue saint-martin<br>Paris, France 75019</p>
+                <p><strong>Email Address</strong><br><a href="mailto:contact@lynx_auto_moto.com">contact@lynx_auto_moto.com</a></p>
+                <p><strong>Phone Number</strong><br><a href="tel:+33167582121">01 52 48 48 90</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>ILS NOUS ONT FAIS CONFIANCE </h2>
+            <div class="testimonials">
+                <blockquote>
+                    <p>Lynx AUTO MOTO m’a permis d’acquérir Renault Clio
+Achat en ligne
+Comme j'aime ! Service 100% en ligne pas besoin de photocopies. Un service téléphonique toujours présent ! Recommandé !</p>
+                    <cite>Salih K. le 14/12/2020</cite>
+                </blockquote>
+                <blockquote>
+                    <p>LYNX AUTO MOTO sont pratiques et bien structurés. Volkswagen Polo
+Achat en ligne
+Services parfaits grâce au personnel. Très disponible, très pro et aimable. Je remercie les deux commerciaux.!</p>
+                    <cite>Amal Malouf. le 19/05/2020</cite>
+                </blockquote>
+                <blockquote>
+                    <p>Grâce à Lynx AUTO MOTO, Volkswagen Touran
+Achat en ligne
+Rapidité, réactivité, accompagnement, disponibilité : parfait.</p>
+                    <cite>Ludovic I. le 18/10/2020</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer id="footer">
+    <div class="container">
+        <img src="{{ asset('images/19.webp') }}" alt="Base-2 Academy Logo">
+        <p>&copy;2020 Tous droits réservés</p>
+    </div>
+</footer>
+
+{% endblock %}

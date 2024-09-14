@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ cours.titre }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/cours.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="cours-container">
+    <h1>{{ cours.titre }}</h1>
+    
+    <p>{{ cours.description|raw }}</p>
+
+    {% set videoId = null %}
+    {% if cours.youtubeUrl contains 'v=' %}
+        {% set videoId = cours.youtubeUrl | split('v=')[1] | split('&')[0] %}
+    {% elseif cours.youtubeUrl contains 'youtu.be' %}
+        {% set videoId = cours.youtubeUrl | split('.be/')[1] %}
+    {% endif %}
+
+    {% if videoId %}
+        <div class="video-container">
+            <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/{{ videoId }}" 
+                    title="{{ cours.titre }}" frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+    {% else %}
+        <p>La vidéo n'est pas disponible.</p>
+    {% endif %}
+
+    <div class="comment-section">
+        <h2>Commentaires</h2>
+        
+        {% for commentaire in commentaires %}
+            <div class="comment">
+                <strong>{{ commentaire.utilisateur.email }}</strong>
+                <p>{{ commentaire.contenu }}</p>
+                <small>{{ commentaire.dateCommentaire|date('d/m/Y H:i') }}</small>
+            </div>
+        {% else %}
+            <p>Soyez le premier à commenter ce cours.</p>
+        {% endfor %}
+        
+        {% if app.user %}
+            {{ form_start(form) }}
+                {{ form_widget(form.contenu, { 'attr': {'rows': '4', 'placeholder': 'Écrire un commentaire...' } }) }}
+                <button type="submit" class="btn-submit">Envoyer</button>
+            {{ form_end(form) }}
+        {% else %}
+            <p><a href="{{ path('app_login') }}">Connectez-vous</a> pour laisser un commentaire.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

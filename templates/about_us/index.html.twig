@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Qui sommes-nous ?{% endblock %}
+
+{% block body %}
+    <!-- Section avec l'image de fond et le titre -->
+    <section id="about-us" style="background-image: url('{{ asset('images/qui nous somme background.png') }}'); background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center;">
+        <h1 style="color: white;">Qui sommes-nous ?</h1>
+    </section>
+    <h2 style="color: #d9777f; text-align:center;">LYNX   _  AUTO  _  MOTO</h2>
+
+
+    <!-- Section des flexbox pour l'affichage des images et du texte -->
+    <section class="about-content full-width">
+        <div class="flexbox-container">
+            <div class="flexbox-item" style="display: flex; flex-direction: row-reverse; align-items: center; margin-bottom: 2rem;">
+                <img src="{{ asset('images/r8-lebon.png') }}" alt="About Us Image" style="width: 50%; border-radius: 10px;">
+                <p style="width: 25%; padding: 1rem;"> Lynx Auto Moto Notre équipe dotée d’une grande expérience dans ce secteur, met tout son savoir-faire à disposition de notre clientèle afin d’assurer une qualité de service irréprochable.</p>
+            </div>
+            <div class="flexbox-item" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 2rem;">
+                <img src="{{ asset('images/rs7.png') }}" alt="About Us Image" style="width: 50%; border-radius: 10px;">
+                <p style="width: 50%; padding: 1rem;">Passionnés par les voitures de luxe très sportives, de compétitions ( Mercedes, Ferrari, Lamborghini, Audi, Porsche ), nous mettons également à votre disposition quelques véhicules préparés spécialement, avec des lignes d’échappement de marques AKRAPOVIĆ et Frequency Intelligent Exhaust. Tous nos véhicules sont dans un état irréprochable et révisés en concession mensuellement.</p>
+            </div>
+            <div class="flexbox-item" style="display: flex; flex-direction: row-reverse; align-items: center; margin-bottom: 2rem;">
+                <img src="{{ asset('images/M45L.png') }}" alt="About Us Image" style="width: 50%; border-radius: 10px;">
+                <p style="width: 50%; padding: 1rem;">Nos véhicules sont proposés pour une location d’une journée, d’un week-end, d’une semaine ou plus. Nous assurons gratuitement un service de livraison dans un périmètre de 30 km.</p>
+            </div>
+                        <div class="flexbox-item" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 2rem;">
+                <img src="{{ asset('images/Q4 M4Cabriolet.png') }}" alt="About Us Image" style="width: 50%; border-radius: 10px;">
+                <p style="width: 50%; padding: 1rem;">Avec une équipe Passionnés par les voitures de luxe très sportives, de compétitions ( Mercedes, Ferrari, Lamborghini, Audi, Porsche ), nous mettons également à votre disposition quelques véhicules préparés spécialement, avec des lignes d’échappement de marques AKRAPOVIĆ et Frequency Intelligent Exhaust. Tous nos véhicules sont dans un état irréprochable et révisés en concession mensuellement..</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

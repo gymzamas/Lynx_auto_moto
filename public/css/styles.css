@@ -1,0 +1,705 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ajout d'un padding en haut pour compenser la hauteur de la navbar */
+body {
+  padding-top: 50px; /* Ajuster cette valeur en fonction de la hauteur réelle de la navbar */
+}
+
+/* Styles pour la Navbar */
+nav {
+  background-color: #f2f2f2; /* Blanc cassé */
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espacement entre le logo, les liens et les boutons */
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  top: 0;
+}
+
+nav .logo img {
+  margin-right: auto; /* Pousse le logo à gauche */
+  height: 60px; /* Hauteur du logo */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin-left: 150px; /* Centre horizontalement les éléments de la liste */
+}
+
+nav ul li {
+  font-weight: bold;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #d92332; /* Rouge vif */
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.auth-buttons .btn-outline,
+.auth-buttons .btn-filled {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-buttons .btn-outline {
+  color: #d92332; /* Rouge vif */
+  border: 2px solid #d94350; /* Rouge intermédiaire */
+  background-color: transparent;
+}
+
+.auth-buttons .btn-outline:hover {
+  background-color: #d94350; /* Rouge intermédiaire */
+  color: #ffffff;
+}
+
+.auth-buttons .btn-filled {
+  color: #ffffff;
+  background-color: #262526; /* Noir profond */
+  border: 2px solid #00281c;
+}
+
+.auth-buttons .btn-filled:hover {
+  background-color: #003822;
+  border-color: #003822;
+}
+
+/* Styles pour le menu burger */
+#menu-burger {
+  font-size: 40px;
+  cursor: pointer;
+  color: #d92332; /* Rouge vif */
+  padding: 0.5rem;
+  margin-left: 150px;
+}
+
+/* Styles pour la sidebar */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #d9777f; /* Rose pâle */
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #d92332; /* Rouge vif */
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #d94350; /* Rouge intermédiaire */
+  color: #ffffff;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 46px;
+  color: #262526; /* Noir profond */
+  border: none;
+}
+
+.sidebar .btn-fill {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #ffffff;
+  background-color: #d92332; /* Rouge vif */
+  border: 2px solid #00281c;
+}
+
+.sidebar .dashboard {
+  font-weight: 900;
+}
+
+/* Cacher le menu burger sur les grands écrans et afficher sur les petits */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* Masquer le menu de la navbar sur les petits écrans */
+  }
+  #menu-burger {
+    display: block; /* Afficher le menu burger sur les petits écrans */
+  }
+}
+
+/* Afficher le menu burger en plein écran lorsqu'il est ouvert */
+.sidebar.active {
+  width: 250px;
+  width: 400px;
+}
+
+/* Assurer que les boutons de connexion/s'inscrire apparaissent également à côté du burger sur les petits écrans */
+@media (max-width: 768px) {
+  .auth-buttons {
+    display: none;
+  }
+}
+
+/* Section Hero */
+#hero {
+  background-color: #f2f2f2; /* Blanc cassé */
+  padding: 5rem 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh; /* Full viewport height */
+  border-bottom-left-radius: 100% 250px;
+  border-bottom-right-radius: 100% 250px;
+  overflow: hidden;
+}
+
+#hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#hero .hero-content {
+  max-width: 50%;
+}
+
+#hero p {
+  color: #262526; /* Noir profond */
+  font-size: 4.5rem;
+  font-weight: 100;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+#hero .btn-primary {
+  background-color: #d94350; /* Rouge intermédiaire */
+  color: #fff;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+
+#hero .btn-primary:hover {
+  background-color: #d92332; /* Rouge vif */
+}
+
+#hero .hero-image {
+  max-width: 50%;
+  text-align: right;
+}
+
+#hero img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+/* Section About */
+#about {
+  height: 100vh;
+  padding: 5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.about-image img {
+  width: 100%; /* Ajuste la taille de l'image */
+  max-width: 500px;
+  height: auto;
+}
+
+.about-text {
+  max-width: 600px;
+  margin-left: 2rem;
+  text-align: left;
+}
+
+#about h2 {
+  color: #d9777f;
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+}
+
+#about p {
+  color: #6d6d6d;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Section Superpower */
+#superpower {
+  background-color: #ffffff;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+#superpower h2 {
+  color: #d94350;
+  font-size: 2.5rem;
+  margin-bottom: 7rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.feature {
+  width: 30%;
+  background-color: #f2faed;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.feature-1 {
+  background-color: #f2f2f2;
+}
+
+.feature-2 {
+  background-color: #f2f2f2;
+}
+
+.feature-3 {
+  background-color: #f2f2f2;
+}
+
+.feature img {
+  max-width: 40%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.feature h3 {
+  color: #d94350;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  color: #6d6d6d;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.feature img:last-child {
+  margin-top: 2rem;
+  width: 40px;
+}
+
+/* Section MISSION CODE */
+
+#mission-code {
+  background-color: #ffffff;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+#mission-code p {
+  color: #d94350;
+  font-size: 2rem;
+  margin-bottom: 8rem;
+}
+
+.programmes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.programme {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d94350;
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: left;
+  width: calc(40% - 1rem); /* Pour avoir deux éléments par ligne */
+  position: relative;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 0.5rem;
+}
+
+.programme.light {
+  background-color: #d9777f;
+}
+
+.programme.dark {
+  background-color: #262526;
+}
+
+.programme-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.programme img {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 34px;
+}
+
+.programme:hover {
+  transform: translateY(-5px);
+}
+
+/* Section Testimonials */
+#testimonials {
+  padding-top: 10rem;
+  background-color: #ffffff;
+  text-align: center;
+  height: 60vh;
+  margin-bottom: 10rem;
+}
+
+#testimonials h2 {
+  color: #d92332;
+  font-size: 2rem;
+  margin-bottom: 8rem;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+blockquote {
+  width: 30%;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #6d6d6d;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  color: #d9777f;
+  font-weight: bold;
+}
+
+/* Section QUOTE */
+
+#quote {
+  padding: 5rem 2rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+#quote img {
+  width: 320px; /* Ajusté pour une meilleure mise en page */
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+#quote blockquote {
+  font-size: 3rem; /* Taille de police plus grande pour une meilleure visibilité */
+  color: #d9777f;
+  font-weight: 100;
+  line-height: 1.5;
+  margin: 0 auto;
+  width: 80vw;
+  padding: 4.6rem;
+  border: none;
+}
+
+#quote blockquote p {
+  margin: 0;
+}
+
+.quote-author {
+  margin-top: 1rem;
+  font-size: 1.3rem; /* Ajusté pour mieux correspondre au design */
+  color: #d9777f;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  margin-bottom: 10rem;
+}
+
+/* Section Contact */
+#contact {
+  padding: 7rem 2rem;
+  text-align: center;
+  background-color: #d9777f;
+  border-top-left-radius: 100% 150px;
+  border-top-right-radius: 100% 150px;
+  margin-bottom: -50px;
+}
+
+#contact h2 {
+  color: #262526;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.contact-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-image {
+  flex: 1;
+  text-align: center;
+}
+
+.contact-image img {
+  width: 115%;
+  height: auto;
+}
+
+.contact-info {
+  flex: 1;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 30px;
+}
+
+.contact-info p {
+  color: #d92332;
+  margin-bottom: 3rem;
+}
+
+.contact-info strong {
+  font-size: 1.25rem;
+  color: #d92332;
+}
+
+.contact-info a {
+  color: #d92332;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Styles pour la page "Qui sommes-nous ?" */
+#about-us {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-description {
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #262526;
+  background-color: #f2f2f2; /* Blanc cassé */
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.about-content .flexbox-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexbox-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.flexbox-item img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.flexbox-item p {
+  width: 50%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: #262526;
+}
+
+.vehicle-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  width: 300px;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.vehicle-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .flexbox-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flexbox-item img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Footer */
+
+#footer {
+  background-color: #262526;
+  padding: 2rem 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+#footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#footer img {
+  max-width: 150px; /* Ajuste la taille du logo ici si nécessaire */
+  margin-bottom: 1rem;
+}
+
+#footer p {
+  font-size: 1rem;
+  margin: 0;
+  color: #d3e4e0; /* Couleur du texte */
+  text-align: center;
+}
+
+/* Media Query pour les petits écrans */
+@media (max-width: 768px) {
+  .registration-container {
+    width: 90%;
+  }
+}
+
+/* Animations au scroll */
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Les éléments qui seront animés ont initialement une opacité à 0 */
+[data-scroll-animation] {
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
